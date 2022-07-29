@@ -3,6 +3,7 @@
 dot_dir="$HOME/.config" # dotfile directory
 nested_levels="4" # number of nested levels to search for dotfiles
 dot_file_extensions=(".txt" ".json" ".yml" ".yaml" ".conf" ".ini" ".toml" ".xml" ".vim" ".lua" "rc" "profile" ".resources") # dotfile extensions to search for
+do_ignore_gitignored_files="true"
 
 # check if "gum" and "git" are installed
 dependencies="gum git"
@@ -42,18 +43,25 @@ getDotFiles() {
     # get all files from x nested directories
     files=$(find "$dot_dir" -maxdepth $nested_levels -type f)
 
-    # gitignored files:
-    gitignored_files=$(git -C "$dot_dir" ls-files --others --exclude-standard)
+    # if do_ignore_gitignore is true, ignore files ignored by git
+    if [ "$do_ignore_gitignored_files" = "true" ]; then
+        # gitignored files:
+        gitignored_files=$(git -C "$dot_dir" ls-files --others --exclude-standard)
 
-    # if gitignored files is not empty
-    if [ -n "$gitignored_files" ]; then
-        # remove gitignored files from the list
-        files=$(echo "$files" | grep -v -E "$gitignored_files")
+        # if gitignored files is not empty
+        if [ -n "$gitignored_files" ]; then
+            # remove gitignored files from the list
+            files=$(echo "$files" | grep -v -E "$gitignored_files")
+        fi
     fi
 
     # remove all files that don't end with one of the dot file extensions regex
     files=$(echo "$files" | grep -E "$(buildDotFileRegex)")
     echo "$files"
+}
+
+filterGitIgnoreFiles() {
+
 }
 
 
