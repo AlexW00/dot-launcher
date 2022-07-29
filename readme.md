@@ -9,7 +9,7 @@ Dot-Launcher is a Bash script to quickly open and edit dotfiles.
 
 ## Installation
 
-1. (Install the #{dependencies})
+1. (Install the [dependencies](#dependencies))
 2. Download [dot.sh](./dot.sh) and save it in a directory of your choice.
 3. To execute the script from anywhere, add the following line to your `~/.bashrc`/`~/.zshrc`:
     ```bash
