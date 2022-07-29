@@ -3,7 +3,7 @@
 dot_dir="$HOME/.config" # dotfile directory
 nested_levels="4" # number of nested levels to search for dotfiles
 dot_file_extensions=(".txt" ".json" ".yml" ".yaml" ".conf" ".ini" ".toml" ".xml" ".vim" ".lua" "rc" "profile" ".resources") # dotfile extensions to search for
-do_ignore_gitignored_files="true"
+do_ignore_gitignored_files="true" # whether or not to ignore files also ignored by git
 
 # check if "gum" and "git" are installed
 dependencies="gum git"
