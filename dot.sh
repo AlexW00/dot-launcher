@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 dot_dir="$HOME/.config" # dotfile directory
 nested_levels="3" # number of nested levels to search for dotfiles
@@ -8,7 +8,7 @@ do_ignore_gitignored_files="true" # whether or not to ignore files also ignored 
 # check if "gum" and "git" are installed
 dependencies="gum git"
 for dependency in $dependencies; do
-    if ! command -v $dependency >/dev/null 2>&1; then
+    if ! command -v "$dependency" >/dev/null 2>&1; then
         echo "Error: $dependency is not installed"
         exit 1
     fi
@@ -27,7 +27,7 @@ fi
 # creates a regex pattern for the dotfile extensions
 buildDotFileRegex() {
     regex=""
-    for ext in ${dot_file_extensions[@]}; do
+    for ext in "${dot_file_extensions[@]}"; do
         if [ -z "$regex" ]; then
             regex="$ext"
         else
@@ -63,4 +63,4 @@ getDotFiles() {
 
 
 # pipe files to command "gum filter" and open the result in the default editor
-$EDITOR $(getDotFiles | gum filter)
+$EDITOR "$(getDotFiles | gum filter)"
