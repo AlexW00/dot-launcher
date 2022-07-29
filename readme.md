@@ -20,7 +20,7 @@ Dot-Launcher is a Bash script to quickly open and edit dotfiles.
 
 You can configure the following variables in the `dot.sh` file:
 - `dot_dir`: the directory where the dotfiles are stored. (default: `$HOME/.config`)
-- `nested_levels`: the number of nested levels to search for dotfiles. (default: `4`)
+- `nested_levels`: the number of nested levels to search for dotfiles. (default: `3`)
 - `dot_file_extensions`: allowed file extensions for dotfiles. (default: `".txt" ".json" ".yml" ".yaml" ".conf" ".ini" ".toml" ".xml" ".vim" ".lua" "rc" "profile" ".resources"`)
 - `do_ignore_gitignored_files`: whether or not to ignore files also ignored by git (default: `"true"`)
 
