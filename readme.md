@@ -2,12 +2,14 @@
 
 Dot-Launcher is a Bash script to quickly open and edit dotfiles.
 
-## Dependencies
+![dot-launcher-demo](https://user-images.githubusercontent.com/55558407/181736621-36e8d54e-6110-4d87-ad2c-f4348734bf2b.gif)
+
+## 🚚 Dependencies
 
 - [Git](https://git-scm.com/)
 - [Gum](https://github.com/charmbracelet/gum#installation)
 
-## Installation
+## 💿 Installation
 
 1. (Install the [dependencies](#dependencies))
 2. Download [dot.sh](./dot.sh) and save it in a directory of your choice.
@@ -16,7 +18,7 @@ Dot-Launcher is a Bash script to quickly open and edit dotfiles.
     alias dot='/path/to/dot.sh'
     ```
 
-## Configuration
+## ⚙️ Configuration
 
 You can configure the following variables in the `dot.sh` file:
 - `dot_dir`: the directory where the dotfiles are stored. (default: `$HOME/.config`)
@@ -24,6 +26,6 @@ You can configure the following variables in the `dot.sh` file:
 - `dot_file_extensions`: allowed file extensions for dotfiles. (default: `".txt" ".json" ".yml" ".yaml" ".conf" ".ini" ".toml" ".xml" ".vim" ".lua" "rc" "profile" ".resources"`)
 - `do_ignore_gitignored_files`: whether or not to ignore files also ignored by git (default: `"true"`)
 
-## Usage
+## 💻 Usage
 
 Simply run `dot` in your terminal.
