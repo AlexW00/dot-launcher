@@ -5,8 +5,8 @@ nested_levels="3" # number of nested levels to search for dotfiles
 dot_file_extensions=(".txt" ".json" ".yml" ".yaml" ".conf" ".ini" ".toml" ".xml" ".vim" ".lua" "rc" "profile" ".resources") # dotfile extensions to search for
 do_ignore_gitignored_files="true" # whether or not to ignore files also ignored by git
 
-# check if "gum" and "git" are installed
-dependencies="gum git"
+# check if "fzf" and "git" are installed
+dependencies="fzf git"
 for dependency in $dependencies; do
     if ! command -v "$dependency" >/dev/null 2>&1; then
         echo "Error: $dependency is not installed"
@@ -62,5 +62,12 @@ getDotFiles() {
 
 
 
-# pipe files to command "gum filter" and open the result in the default editor
-$EDITOR "$(getDotFiles | gum filter)"
+# show the files using fzf
+files=$(getDotFiles)
+if [ -n "$files" ]; then
+    files=$(echo "$files" | fzf --pointer="·" --ansi --preview "cat {}")
+    if [ -n "$files" ]; then
+        # open the file if it is selected 
+        $EDITOR "$files"
+    fi
+fi

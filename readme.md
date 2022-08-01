@@ -7,7 +7,7 @@ Dot-Launcher is a Bash script to quickly open and edit dotfiles.
 ## 🚚 Dependencies
 
 - [Git](https://git-scm.com/)
-- [Gum](https://github.com/charmbracelet/gum#installation)
+- [Fzf](https://github.com/junegunn/fzf)
 
 ## 💿 Installation
 
