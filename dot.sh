@@ -65,7 +65,7 @@ getDotFiles() {
 # show the files using fzf
 files=$(getDotFiles)
 if [ -n "$files" ]; then
-    files=$(echo "$files" | fzf --pointer="·" --ansi --preview "cat {}")
+    files=$(echo "$files" | fzf --pointer="*" --ansi --preview "cat {}")
     if [ -n "$files" ]; then
         # open the file if it is selected 
         $EDITOR "$files"
